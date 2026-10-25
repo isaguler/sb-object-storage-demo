@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: sb-object-storage-demo
+
+# Each value can be overridden with env vars, e.g. STORAGE_ENDPOINT, STORAGE_SECRET_KEY
+storage:
+  endpoint: http://localhost:8333
+  # public-endpoint: https://storage.example.com  # host for presigned URLs, defaults to endpoint
+  region: us-east-1
+  access-key: demo-access-key
+  secret-key: demo-secret-key
+  bucket: demo-bucket
+  presign-expiry: 10m

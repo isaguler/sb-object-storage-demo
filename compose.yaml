@@ -1,0 +1,17 @@
+services:
+  seaweedfs:
+    image: chrislusf/seaweedfs:4.48
+    # all-in-one dev mode: master + volume + filer + S3 gateway in one process
+    command: mini -dir=/data
+    environment:
+      AWS_ACCESS_KEY_ID: demo-access-key
+      AWS_SECRET_ACCESS_KEY: demo-secret-key
+      S3_BUCKET: demo-bucket
+    ports:
+      - "8333:8333" # S3 API
+      - "127.0.0.1:8888:8888" # Filer UI, no auth: local only
+    volumes:
+      - seaweed-data:/data
+
+volumes:
+  seaweed-data:
